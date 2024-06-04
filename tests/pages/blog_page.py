@@ -28,6 +28,10 @@ class BlogPage:
 
     def search(self, query):
         try:
+            # Verificar se o search_input_id está visível
+            WebDriverWait(self.driver, 10).until(
+                EC.visibility_of_element_located((By.ID, self.search_input_id))
+            )
             search_input = self.driver.find_element(By.ID, self.search_input_id)
             search_input.send_keys(query)
             search_input.send_keys(Keys.RETURN)
