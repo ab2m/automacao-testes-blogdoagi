@@ -3,6 +3,17 @@ import pytest
 import time
 from selenium import webdriver
 
+@pytest.fixture()
+def driver():
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless=new')
+ 
+    driver = webdriver.Chrome(options=options)
+    driver.set_page_load_timeout(10)
+    driver.implicitly_wait(5)
+
+    yield driver
+    driver.quit()
 
 # Configuração do logger
 logging.basicConfig(
@@ -31,12 +42,6 @@ def pytest_runtest_makereport(item, call):
             logging.info(f"{test_name} PASSED in {duration:.2f} seconds")
         else:
             logging.info(f"{test_name} FAILED in {duration:.2f} seconds")
-
-@pytest.fixture
-def driver():
-    driver = webdriver.Chrome()
-    yield driver
-    driver.quit()
 
 
 

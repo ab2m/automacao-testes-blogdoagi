@@ -1,12 +1,7 @@
-import pytest
-from selenium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
 from pages.blog_page import BlogPage
+from selenium import webdriver
 
-def test_search_with_results():
-    driver = webdriver.Chrome()
+def test_search_with_results(driver):
     blog_page = BlogPage(driver)
     
     try:
@@ -19,5 +14,5 @@ def test_search_with_results():
     except Exception as e:
         print(f"Erro no teste de busca com resultados: {e}")
         raise
-    finally:
-        driver.quit()
+    
+        
