@@ -12,13 +12,8 @@ def test_search_no_results():
     try:
         blog_page.open()
         blog_page.click_search_icon()
-        blog_page.search("xyz123")
-        
-        # Usar espera explícita para o elemento no_results_message
-        WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, blog_page.no_results_message_xpath))
-        )
-        
+        blog_page.search("Aliens")
+                     
         no_results_message = blog_page.get_no_results_message()
         assert no_results_message.is_displayed()
     except Exception as e:

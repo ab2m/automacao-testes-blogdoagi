@@ -12,11 +12,7 @@ def test_search_with_results():
     try:
         blog_page.open()
         blog_page.click_search_icon()
-        blog_page.search("drex")
-        
-        WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, blog_page.results_xpath))
-        )
+        blog_page.search("Drex")
         
         results = blog_page.get_results()
         assert len(results) > 0
