@@ -99,3 +99,6 @@ __pypackages__/
 # Operating system files
 .DS_Store
 Thumbs.db
+
+# Report files
+report.html
