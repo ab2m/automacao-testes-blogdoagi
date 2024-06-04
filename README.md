@@ -48,7 +48,7 @@ Para executar os testes localmente:
 2. Execute os testes:
 
     ```bash
-    pytest --cov=tests --cov-report=html --maxfail=1 --disable-warnings
+    pytest --cov=tests --cov-report=html --disable-warnings
     ```
 
 ### Em Paralelo
